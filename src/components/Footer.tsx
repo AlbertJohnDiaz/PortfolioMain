@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-3">
             {[
-              { icon: FiGithub, label: 'GitHub', href: 'https://github.com/AlbertJohnDiaz' },
+              { icon: FiGithub, label: 'GitHub', href: 'https://github.com/AlbertJohnDiaz'},
               { icon: FiLinkedin, label: 'LinkedIn', value: 'https://www.linkedin.com/in/albert-john-diaz-6a1b5832b/', href: 'https://www.linkedin.com/in/albert-john-diaz-6a1b5832b/' },
               { icon: FiMail, label: 'Email', value: 'diaz.albertjohn123@gmail.com', href: 'mailto:diaz.albertjohn123@gmail.com' },
             ].map(({ icon: Icon, label, href }) => (

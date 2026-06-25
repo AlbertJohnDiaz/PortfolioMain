@@ -12,34 +12,62 @@ export const skillCategories: SkillCategory[] = [
     title: 'Embedded & Hardware',
     icon: 'cpu',
     color: 'from-blue-500 to-cyan-500',
-    skills: ['ESP32', 'Arduino', 'ARM', 'IoT Sensors', 'I2C', 'SPI', 'UART', 'Electronic Diagnostics', 'CCNA Networking', 'AutoCAD', 'PCB Design', 'EasyEDA', 'KiCAD', 'Autodesk Eagle'],
+    skills: [
+      'ARM', 'Arduino', 'AutoCAD', 'EasyEDA', 'Electronic Diagnostics',
+      'ESP32', 'I2C', 'IoT Sensors', 'KiCAD', 'Autodesk Eagle',
+      'PCB Design', 'SPI', 'UART',
+    ],
+  },
+  {
+    id: 'networking',
+    title: 'Networking',
+    icon: 'globe',
+    color: 'from-sky-500 to-indigo-500',
+    skills: [
+      'CCNA', 'Cisco IOS', 'IPv4/IPv6 Subnetting', 'LAN/WAN',
+      'Modbus RTU', 'Network Troubleshooting',
+    ],
   },
   {
     id: 'languages',
     title: 'Programming Languages',
     icon: 'code',
     color: 'from-purple-500 to-violet-500',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'C', 'C++', 'Java', 'Kotlin', 'HTML', 'CSS', 'MATLAB', 'Assembly', 'Verilog', 'VHDL'],
+    skills: [
+      'Assembly (MIPS)', 'C', 'C++', 'CSS', 'Embedded C',
+      'HTML', 'Java', 'JavaScript', 'Kotlin', 'LaTeX',
+      'MATLAB', 'Python', 'TypeScript', 'Verilog', 'VHDL',
+    ],
   },
   {
     id: 'frameworks',
     title: 'Frameworks & Tools',
     icon: 'layers',
     color: 'from-cyan-500 to-blue-500',
-    skills: ['React', 'Node.js', 'Tailwind CSS', 'Firebase', 'PostgreSQL', 'MySQL', 'Git', 'GitHub', 'VSCode'],
+    skills: [
+      'Docker', 'Firebase', 'Git', 'GitHub', 'Jupyter Notebook',
+      'Linux', 'MySQL', 'Node.js', 'PostgreSQL', 'React', 'REST APIs', 'Vite',
+      'VSCode', 'WordPress', 
+    ],
   },
   {
     id: 'ai',
     title: 'AI Tools',
     icon: 'bot',
     color: 'from-emerald-500 to-teal-500',
-    skills: ['Claude', 'ChatGPT', 'Gemini', 'DeepSeek', 'Perplexity', 'Bolt', 'Lovable', 'Zapier'],
+    skills: [
+      'Bolt', 'ChatGPT', 'Claude', 'DeepSeek',
+      'Gemini', 'Lovable', 'Perplexity', 'Zapier',
+    ],
   },
   {
     id: 'soft',
     title: 'Soft Skills',
     icon: 'users',
     color: 'from-orange-500 to-amber-500',
-    skills: ['Leadership', 'Problem Solving', 'Technical Documentation', 'Cross-functional Collaboration', 'Fast Learner', 'Adaptable', 'Attention to Detail'],
+    skills: [
+      'Academic Writing', 'Adaptable', 'Attention to Detail',  'Communication', 'Cross-functional Collaboration',
+      'Fast Learner', 'Leadership', 'Presentation', 'Problem Solving', 'Research', 'Technical Documentation', 
+    ],
   },
 ];

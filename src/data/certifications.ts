@@ -7,6 +7,7 @@ import NGCPLogo from '../EducTour/ngcp.png';
 import GlobeLogo from '../EducTour/globe.png';
 import OnsemiLogo from '../EducTour/onsemi.png';
 import CSE from '../Certificates/CSCertificate.png';
+import wordpress from '../Certificates/WordpressCert.png';
 
 export interface Certification {
   id: number;
@@ -31,6 +32,15 @@ export const certifications: Certification[] = [
   },
   {
     id: 2,
+    title: 'Build a free website with WordPress',
+    organization: 'Coursera',
+    year: '2026',
+    type: 'certification',
+    color: 'from-cyan-500 to-blue-600',
+    image: wordpress,
+  },
+  {
+    id: 3,
     title: 'CCNA Enterprise Networking, Security, and Automation',
     organization: 'Cisco Networking Academy',
     year: '2025',
@@ -39,7 +49,7 @@ export const certifications: Certification[] = [
     image: CCNA_ENSA,
   },
   {
-    id: 3,
+    id: 4,
     title: 'CCNA Switching, Routing & Wireless Essentials',
     organization: 'Cisco Networking Academy',
     year: '2025',
@@ -48,7 +58,7 @@ export const certifications: Certification[] = [
     image: CCNA_SRWE,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Introduction to Cybersecurity',
     organization: 'Cisco Networking Academy',
     year: '2025',
@@ -57,7 +67,7 @@ export const certifications: Certification[] = [
     image: IntroToCybersec,
   },
   {
-    id: 5,
+    id: 6,
     title: 'Networking Essentials',
     organization: 'Cisco Networking Academy',
     year: '2025',

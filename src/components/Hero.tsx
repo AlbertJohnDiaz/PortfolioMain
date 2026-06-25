@@ -74,7 +74,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.p custom={3} variants={fadeUp} initial="hidden" animate="visible" className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
-              Computer Engineering graduate with experience in embedded systems, IoT firmware development, and full-stack software engineering. Passionate about building intelligent hardware-software solutions using embedded systems, machine learning, and modern web technologies.
+             Computer Engineering graduate. I design and build embedded systems, IoT pipelines, full-stack applications, and networks. Architecting the physical world, rendering the digital one.
             </motion.p>
 
             <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-wrap gap-3">

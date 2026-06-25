@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiUpload, FiAward, FiExternalLink, FiX } from 'react-icons/fi';
 import { certifications, educationalExposures } from '../data/certifications';
 
-function CertCard({ cert, index, onOpen }: { cert: typeof certifications[0]; index: number; onOpen: (src: string, label: string) => void }) {
+function CertCard({ cert, index, onOpen, className = '' }: { cert: typeof certifications[0]; index: number; onOpen: (src: string, label: string) => void; className?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -11,7 +11,7 @@ function CertCard({ cert, index, onOpen }: { cert: typeof certifications[0]; ind
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -4 }}
-      className="glass-card overflow-hidden hover:border-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group"
+      className={`glass-card overflow-hidden hover:border-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group ${className}`}
     >
       {/* Certificate image */}
       <button
@@ -83,6 +83,32 @@ function ExposureCard({ cert, index }: { cert: typeof educationalExposures[0]; i
 
 export default function Certifications() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; label: string } | null>(null);
+  const [scrollPercent, setScrollPercent] = useState(0);
+  const certRowRef = useRef<HTMLDivElement | null>(null);
+
+  const updateScrollPercent = () => {
+    const row = certRowRef.current;
+    if (!row) return;
+
+    const maxScrollLeft = row.scrollWidth - row.clientWidth;
+    const percent = maxScrollLeft > 0 ? (row.scrollLeft / maxScrollLeft) * 100 : 0;
+    setScrollPercent(percent);
+  };
+
+  const handleSliderChange = (value: number) => {
+    const row = certRowRef.current;
+    if (!row) return;
+
+    const maxScrollLeft = row.scrollWidth - row.clientWidth;
+    row.scrollTo({ left: (value / 100) * maxScrollLeft, behavior: 'smooth' });
+    setScrollPercent(value);
+  };
+
+  useEffect(() => {
+    updateScrollPercent();
+    window.addEventListener('resize', updateScrollPercent);
+    return () => window.removeEventListener('resize', updateScrollPercent);
+  }, []);
 
   return (
     <section id="certifications" className="relative py-24 px-6">
@@ -106,11 +132,35 @@ export default function Certifications() {
           </p>
         </motion.div>
 
-        {/* Certifications grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-12">
-          {certifications.map((cert, i) => (
-            <CertCard key={cert.id} cert={cert} index={i} onOpen={(src, label) => setSelectedImage({ src, label })} />
-          ))}
+        {/* Certifications slider */}
+        <div className="mb-12">
+          <div
+            ref={certRowRef}
+            onScroll={updateScrollPercent}
+            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {certifications.map((cert, i) => (
+              <CertCard
+                key={cert.id}
+                cert={cert}
+                index={i}
+                className="w-[280px] sm:w-[300px] flex-none snap-start"
+                onOpen={(src, label) => setSelectedImage({ src, label })}
+              />
+            ))}
+          </div>
+
+          <div className="mt-2 flex items-center gap-3">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500"></span>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={scrollPercent}
+              onChange={(e) => handleSliderChange(Number(e.target.value))}
+              className="h-1.5 flex-1 cursor-pointer appearance-none rounded-full bg-white/10 accent-cyan-400"
+            />
+          </div>
         </div>
 
         {/* Educational exposure */}

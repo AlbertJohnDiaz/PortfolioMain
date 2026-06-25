@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiCpu, FiCode, FiLayers, FiZap, FiUsers } from 'react-icons/fi';
+import { FiCpu, FiCode, FiLayers, FiZap, FiUsers, FiGlobe } from 'react-icons/fi';
 import { skillCategories, type SkillCategory } from '../data/skills';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -8,6 +8,8 @@ const iconMap: Record<string, React.ReactNode> = {
   layers: <FiLayers size={20} />,
   bot: <FiZap size={20} />,
   users: <FiUsers size={20} />,
+  globe: <FiGlobe size={20} />,
+  wifi: <FiGlobe size={20} />,
 };
 
 function SkillBadge({ name, delay }: { name: string; delay: number }) {
